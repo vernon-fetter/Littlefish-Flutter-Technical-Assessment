@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:question_1/ui/counter/counter.dart';
 import 'package:question_1/ui/welcome/welcome.dart';
 
 void main() {
@@ -19,9 +20,10 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
-    routes: {
-      '/': (context) => const WelcomeScreen(),
-    },
+      routes: {
+        '/': (context) => const WelcomeScreen(),
+        '/counter': (context) => const CounterScreen(),
+      },
     );
   }
 }
