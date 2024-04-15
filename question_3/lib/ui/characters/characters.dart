@@ -48,86 +48,85 @@ class _CharacterPageState extends State<CharacterPage> {
       pageProvider.pages = characters.info!.pages;
       return characters;
     } else {
-      throw Exception('Failed to load characters');
+      throw Exception('Failed to load characters: ${response.statusCode}');
     }
   }
 
   void _showCharacterDetailsModal(BuildContext context, Result character) {
-  showModalBottomSheet(
-    context: context,
-    builder: (BuildContext context) {
-      return Container(
-        padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 24.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Container(
-              padding: const EdgeInsets.only(bottom: 20.0),
-              alignment: Alignment.center,
-              child: Text(
-                character.name!,
-                style: const TextStyle(
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.bold,
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return Container(
+          padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 24.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Container(
+                padding: const EdgeInsets.only(bottom: 20.0),
+                alignment: Alignment.center,
+                child: Text(
+                  character.name!,
+                  style: const TextStyle(
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-            ),
-            Container(
-              padding: const EdgeInsets.only(bottom: 10.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Species:',
-                    style: const TextStyle(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
+              Container(
+                padding: const EdgeInsets.only(bottom: 10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'Species:',
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                  Text(
-                    character.species!,
-                    style: const TextStyle(
-                      fontSize: 18.0,
+                    Text(
+                      character.species!,
+                      style: const TextStyle(
+                        fontSize: 18.0,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            Container(
-              padding: const EdgeInsets.only(bottom: 10.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Status:',
-                    style: const TextStyle(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
+              Container(
+                padding: const EdgeInsets.only(bottom: 10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'Status:',
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                  Text(
-                    character.status!,
-                    style: const TextStyle(
-                      fontSize: 18.0,
+                    Text(
+                      character.status!,
+                      style: const TextStyle(
+                        fontSize: 18.0,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            Container(
-              alignment: Alignment.center,
-              child: Image.network(
-                character.image!,
-                height: 200.0,
+              Container(
+                alignment: Alignment.center,
+                child: Image.network(
+                  character.image!,
+                  height: 200.0,
+                ),
               ),
-            ),
-          ],
-        ),
-      );
-    },
-  );
-}
-
+            ],
+          ),
+        );
+      },
+    );
+  }
 
   void _loadNextPage() {
     PageProvider pageProvider = Provider.of(
@@ -189,8 +188,21 @@ class _CharacterPageState extends State<CharacterPage> {
               child: CircularProgressIndicator(),
             );
           } else if (snapshot.hasError) {
-            return Center(
-              child: Text('Error: ${snapshot.error}'),
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('Error: ${snapshot.error}'),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      futureCharacters = _fetchCharacters(
+                        pageProvider.currentPage!,
+                      );
+                    });
+                  },
+                  child: Text('Retry'),
+                ),
+              ],
             );
           } else {
             pageProvider.pages ??= snapshot.data!.info!.pages;
