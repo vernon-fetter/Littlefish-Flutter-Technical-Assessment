@@ -5,6 +5,7 @@ This is a Flutter application that allows users to explore characters from the R
 ## Project Structure
 
 - **main.dart:** Entry point of the application. It initializes the app and defines routes.
+- **constants/endpoints.dart:** Defines the endpoints used.
 - **ui/welcome/welcome.dart:** Welcome screen displayed when the app starts. Allows users to navigate to the character page.
 - **ui/characters/characters.dart:** Character page that fetches and displays character data. Users can browse characters and navigate between pages.
 - **providers/page_provider.dart:** Provider class for managing page state. Keeps track of current page, total pages, and other page-related information.

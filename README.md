@@ -43,6 +43,7 @@ An app to explore characters from the Rick and Morty universe using data from th
 
 **Project Structure:**
 - **main.dart:** Entry point of the application.
+- **constants/endpoints.dart:** Endpoints used.
 - **ui/welcome/welcome.dart:** Welcome screen.
 - **ui/characters/characters.dart:** Character page.
 - **providers/page_provider.dart:** Manages page state.
