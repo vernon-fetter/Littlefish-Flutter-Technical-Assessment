@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const WelcomeScreen(),
-        '/counter': (context) => CounterScreenRedux(),
+        '/counter': (context) => const CounterScreenRedux(),
       },
     );
   }

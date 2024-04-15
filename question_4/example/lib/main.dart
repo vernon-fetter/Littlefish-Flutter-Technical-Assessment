@@ -36,12 +36,12 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Device Internet Connectivity Status'),
+          title: const Text('Device Internet Connectivity Status'),
         ),
         body: Center(
           child: Text(
             _isConnected ? 'Connected' : 'Disconnected',
-            style: TextStyle(fontSize: 24),
+            style: const TextStyle(fontSize: 24),
           ),
         ),
       ),

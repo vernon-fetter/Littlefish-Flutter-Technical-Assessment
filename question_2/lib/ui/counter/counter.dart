@@ -4,6 +4,8 @@ import 'package:question_2/state/redux/actions.dart';
 import 'package:question_2/state/redux/store.dart';
 
 class CounterScreenRedux extends StatelessWidget {
+  const CounterScreenRedux({super.key});
+
   @override
   Widget build(BuildContext context) {
     return StoreProvider<int>(
