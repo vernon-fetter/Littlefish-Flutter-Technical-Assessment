@@ -9,6 +9,9 @@ class WelcomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           'Question 3',
+          style: TextStyle(
+            color: Colors.white,
+          ),
         ),
         backgroundColor: Colors.green[700],
       ),
