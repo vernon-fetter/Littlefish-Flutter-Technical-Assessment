@@ -52,46 +52,82 @@ class _CharacterPageState extends State<CharacterPage> {
     }
   }
 
-  void _showCharacterDetailsModal(
-    BuildContext context,
-    Result character,
-  ) {
-    showModalBottomSheet(
-      context: context,
-      builder: (BuildContext context) {
-        return Container(
-          padding: const EdgeInsets.all(
-            16.0,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text(
+  void _showCharacterDetailsModal(BuildContext context, Result character) {
+  showModalBottomSheet(
+    context: context,
+    builder: (BuildContext context) {
+      return Container(
+        padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 24.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+              padding: const EdgeInsets.only(bottom: 20.0),
+              alignment: Alignment.center,
+              child: Text(
                 character.name!,
                 style: const TextStyle(
                   fontSize: 24.0,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 10.0),
-              Text(
-                'Species: ${character.species.toString()}',
-                style: const TextStyle(
-                  fontSize: 18.0,
-                ),
+            ),
+            Container(
+              padding: const EdgeInsets.only(bottom: 10.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Species:',
+                    style: const TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    character.species!,
+                    style: const TextStyle(
+                      fontSize: 18.0,
+                    ),
+                  ),
+                ],
               ),
-              Text(
-                'Status: ${character.status.toString()}',
-                style: const TextStyle(
-                  fontSize: 18.0,
-                ),
+            ),
+            Container(
+              padding: const EdgeInsets.only(bottom: 10.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Status:',
+                    style: const TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    character.status!,
+                    style: const TextStyle(
+                      fontSize: 18.0,
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
-        );
-      },
-    );
-  }
+            ),
+            Container(
+              alignment: Alignment.center,
+              child: Image.network(
+                character.image!,
+                height: 200.0,
+              ),
+            ),
+          ],
+        ),
+      );
+    },
+  );
+}
+
 
   void _loadNextPage() {
     PageProvider pageProvider = Provider.of(
