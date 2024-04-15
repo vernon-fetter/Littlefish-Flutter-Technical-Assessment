@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:question_3/providers/page_provider.dart';
-import 'package:question_3/ui/characters/characters.dart';
 import 'package:provider/provider.dart';
+import 'package:question_3/providers/page_provider.dart';
+import 'package:question_3/ui/welcome/welcome.dart';
+import 'package:question_3/ui/characters/characters.dart';
 
 void main() {
   runApp(MyApp());
@@ -25,7 +26,8 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: '/',
         routes: {
-          '/': (context) => const CharacterPage(),
+          '/': (context) => const WelcomeScreen(),
+          '/characters': (context) => const CharacterPage(),
         },
       ),
     );

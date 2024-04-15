@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
+import 'package:question_3/constants/endpoints.dart';
 import 'dart:convert';
 import 'package:question_3/models/character_model.dart';
 import 'package:question_3/providers/page_provider.dart';
@@ -14,7 +15,6 @@ class CharacterPage extends StatefulWidget {
 
 class _CharacterPageState extends State<CharacterPage> {
   late Future<Character> futureCharacters;
-  final String baseUrl = "https://rickandmortyapi.com/api/character";
 
   @override
   void initState() {
@@ -57,12 +57,17 @@ class _CharacterPageState extends State<CharacterPage> {
       context: context,
       builder: (BuildContext context) {
         return Container(
-          padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 24.0),
+          padding: const EdgeInsets.symmetric(
+            vertical: 20.0,
+            horizontal: 24.0,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Container(
-                padding: const EdgeInsets.only(bottom: 20.0),
+                padding: const EdgeInsets.only(
+                  bottom: 20.0,
+                ),
                 alignment: Alignment.center,
                 child: Text(
                   character.name!,
@@ -73,7 +78,9 @@ class _CharacterPageState extends State<CharacterPage> {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.only(bottom: 10.0),
+                padding: const EdgeInsets.only(
+                  bottom: 10.0,
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -94,7 +101,9 @@ class _CharacterPageState extends State<CharacterPage> {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.only(bottom: 10.0),
+                padding: const EdgeInsets.only(
+                  bottom: 10.0,
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -200,7 +209,9 @@ class _CharacterPageState extends State<CharacterPage> {
                       );
                     });
                   },
-                  child: Text('Retry'),
+                  child: const Text(
+                    'Retry',
+                  ),
                 ),
               ],
             );
