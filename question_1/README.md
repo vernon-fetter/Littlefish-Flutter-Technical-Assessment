@@ -1,16 +1,15 @@
-# question_1
+# Question 1 - Counter Application (BLOC)
 
-A new Flutter project.
+This Flutter project is a simple counter application that demonstrates basic state management using BLOC architecture.
 
-## Getting Started
+## Project Structure
 
-This project is a starting point for a Flutter application.
+- **main.dart:** Entry point of the application. It initializes the app and defines routes.
+- **ui/welcome/welcome.dart:** Welcome screen displayed when the app starts. It displays a welcome message and a button to navigate to the counter screen.
+- **ui/counter/counter.dart:** Contains the `CounterScreen` widget, which displays the current count and provides buttons to increment and decrement the count. It utilizes BLOC (Business Logic Component) architecture for state management.
+- **state/bloc/counter_bloc.dart:** Defines the `CounterBloc` class, which manages the state of the counter using BLOC pattern.
 
-A few resources to get you started if this is your first Flutter project:
+## Dependencies
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [Flutter](https://flutter.dev/)
+- [material](https://api.flutter.dev/flutter/material/material-library.html): Material Design widgets for building UIs.

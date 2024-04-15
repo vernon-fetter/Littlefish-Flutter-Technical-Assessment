@@ -1,15 +1,7 @@
-# question_4
+# Question 4 - Internet Connectivity Plugin
 
-A new Flutter plugin project.
+A Flutter plugin to check device internet connectivity status.
 
-## Getting Started
+## Overview
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
-
-For help getting started with Flutter development, view the
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
+This Flutter plugin provides methods to check the device's internet connectivity status. It includes a method to check connectivity at the moment and a stream to listen for changes in connectivity status.

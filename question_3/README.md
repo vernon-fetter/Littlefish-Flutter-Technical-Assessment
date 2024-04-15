@@ -1,16 +1,18 @@
-# question_3
+# Question 3 - Rick and Morty Characters Application
 
-A new Flutter project.
+This is a Flutter application that allows users to explore characters from the Rick and Morty universe. It fetches character data from the [Rick and Morty API](https://rickandmortyapi.com/) and displays it in a user-friendly interface.
 
-## Getting Started
+## Project Structure
 
-This project is a starting point for a Flutter application.
+- **main.dart:** Entry point of the application. It initializes the app and defines routes.
+- **ui/welcome/welcome.dart:** Welcome screen displayed when the app starts. Allows users to navigate to the character page.
+- **ui/characters/characters.dart:** Character page that fetches and displays character data. Users can browse characters and navigate between pages.
+- **providers/page_provider.dart:** Provider class for managing page state. Keeps track of current page, total pages, and other page-related information.
+- **models/character_model.dart:** Model classes for representing character and location data.
 
-A few resources to get you started if this is your first Flutter project:
+## Dependencies
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [Flutter](https://flutter.dev/)
+- [http](https://pub.dev/packages/http): HTTP client for making requests to the Rick and Morty API.
+- [provider](https://pub.dev/packages/provider): State management library for managing app state.
+- [material](https://api.flutter.dev/flutter/material/material-library.html): Material Design widgets for building UIs.
